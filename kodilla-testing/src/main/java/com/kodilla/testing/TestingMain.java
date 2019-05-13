@@ -22,7 +22,7 @@ public class TestingMain {
         int add = calc.add();
         int substract = calc.substract();
 
-        System.out.println("Wynik odejmowania: " + add);
-        System.out.println("Wynik dodawania: " + substract);
+        System.out.println("Wynik odejmowania: " + substract);
+        System.out.println("Wynik dodawania: " + add);
     }
 }
