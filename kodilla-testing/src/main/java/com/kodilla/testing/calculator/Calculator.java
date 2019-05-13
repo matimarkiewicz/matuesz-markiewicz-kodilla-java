@@ -6,10 +6,17 @@ import java.io.*;
 
 public class Calculator {
 
-    public int add(int a, int b) {
+    private int a;
+    private int b;
+
+    public Calculator (int a, int b) {
+        this.a=a;
+        this.b=b;
+    }
+    public int add() {
             return a + b;
     }
-    public int substract(int a, int b) {
+    public int substract() {
             return a - b;
     }
 }
