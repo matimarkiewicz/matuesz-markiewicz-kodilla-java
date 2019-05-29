@@ -1,8 +1,7 @@
 package com.kodilla.testing.library;
 
-import java.util.*;
-
 public class Book {
+
     String title;
     String author;
     int publicationYear;
