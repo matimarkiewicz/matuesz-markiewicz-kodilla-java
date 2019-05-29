@@ -4,7 +4,6 @@ import org.junit.*;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -96,7 +95,7 @@ public class BookDirectoryTestSuite {
         List<Book> resultListBooksInHandsOf = bookLibrary.listBooksInHandsOf(isA(LibraryUser.class));
 
         assertEquals(0, resultListBooksInHandsOf.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(any(LibraryUser.class));
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(any(LibraryUser.class));
     }
 
     @Test
@@ -110,8 +109,8 @@ public class BookDirectoryTestSuite {
 
         List<Book> resultListBooksInHandsOf = bookLibrary.listBooksInHandsOf(isA(LibraryUser.class));
 
-        assertEquals(1, resultListBooksInHandsOf.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(any(LibraryUser.class));
+                assertEquals(5, resultListBooksInHandsOf.size());
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(any(LibraryUser.class));
     }
 
     @Test
@@ -126,6 +125,6 @@ public class BookDirectoryTestSuite {
         List<Book> resultListBooksInHandsOf = bookLibrary.listBooksInHandsOf(isA(LibraryUser.class));
 
         assertEquals(5, resultListBooksInHandsOf.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(any(LibraryUser.class));
+        verify(libraryDatabaseMock, times(0)).listBooksInHandsOf(any(LibraryUser.class));
     }
 }
