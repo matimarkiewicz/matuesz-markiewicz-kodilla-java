@@ -1,4 +1,4 @@
-package challenges;
+package com.kodilla.challenges;
 
 import java.util.*;
 import java.io.*;

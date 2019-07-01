@@ -1,7 +1,6 @@
-package challenges;
+package com.kodilla.challenges;
 
 import java.util.*;
-import java.io.*;
 import java.lang.*;
 import java.util.stream.Collectors;
 
