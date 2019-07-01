@@ -1,4 +1,4 @@
-package com.kodilla.challenges;
+package com.kodilla.good.patterns.challenges;
 
 import java.util.*;
 import java.lang.*;
