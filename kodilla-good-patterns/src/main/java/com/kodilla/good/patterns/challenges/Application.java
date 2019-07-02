@@ -11,15 +11,10 @@ public class Application {
 
         Map<String, List<String>> movieStoreMap = movieStore.getMovies();
 
-        final String booksMovieList = movieStoreMap.entrySet()
+        final String moviesList = movieStoreMap.entrySet()
                 .stream()
-                .flatMap(n -> {
-                    List<String> list = new ArrayList<>();
-                    list.add(n.getKey());
-                    list.addAll(n.getValue());
-                    return list.stream();
-                })
+                .flatMap(entry -> entry.getValue().stream())
                 .collect(Collectors.joining("! "));
-        System.out.println(booksMovieList);
+        System.out.println(moviesList);
     }
 }
