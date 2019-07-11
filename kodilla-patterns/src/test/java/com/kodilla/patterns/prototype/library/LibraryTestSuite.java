@@ -1,12 +1,10 @@
-package prototype.library;
+package com.kodilla.patterns.prototype.library;
 
-import com.kodilla.patterns.prototype.library.Book;
-import com.kodilla.patterns.prototype.library.Library;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.time.LocalDate;
-
+import java.util.HashSet;
+import java.util.Arrays;
 
 public class LibraryTestSuite {
     @Test
@@ -16,6 +14,7 @@ public class LibraryTestSuite {
         Book firstBook = new Book("Duma i uprzedzenie", "Jane Austen", LocalDate.of(1813,1,1));
         Book secondBook = new Book("Wojna i pokój", "Lew Tołstoj", LocalDate.of(1869,1,1));
 
+        library.setBooks(new HashSet<>(Arrays.asList(firstBook, secondBook)));
         library.getBooks().add(firstBook);
         library.getBooks().add(secondBook);
 
@@ -36,6 +35,10 @@ public class LibraryTestSuite {
         }
 
         library.getBooks().remove(secondBook);
+
+        System.out.println(library);
+        System.out.println(clonedLibrary);
+        System.out.println(deepClonedLibrary);
 
         Assert.assertEquals(1, library.getBooks().size());
         Assert.assertEquals(clonedLibrary.getBooks(), library.getBooks());

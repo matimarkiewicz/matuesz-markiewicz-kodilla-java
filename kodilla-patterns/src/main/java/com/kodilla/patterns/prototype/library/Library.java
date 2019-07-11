@@ -3,7 +3,7 @@ package com.kodilla.patterns.prototype.library;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Library {
+public class Library implements Cloneable {
     private String name;
     private Set<Book> books = new HashSet<>();
 
@@ -28,11 +28,11 @@ public class Library {
     }
 
     public Library shallowCopy() throws CloneNotSupportedException {
-        return (Library) super.clone();
+        return (Library)super.clone();
     }
 
     public Library deepCopy() throws CloneNotSupportedException {
-        Library clonedLibrary = (Library) super.clone();
+        Library clonedLibrary = (Library)super.clone();
 
         clonedLibrary.setBooks(new HashSet<>());
 
