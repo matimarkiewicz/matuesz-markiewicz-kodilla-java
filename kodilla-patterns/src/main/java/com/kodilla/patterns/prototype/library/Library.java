@@ -37,8 +37,16 @@ public class Library implements Cloneable {
         clonedLibrary.setBooks(new HashSet<>());
 
         for (Book book : getBooks()) {
-            clonedLibrary.getBooks();
+            clonedLibrary.getBooks().add(book);
         }
         return clonedLibrary;
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "name='" + name + '\'' +
+                ", books=" + books +
+                '}';
     }
 }

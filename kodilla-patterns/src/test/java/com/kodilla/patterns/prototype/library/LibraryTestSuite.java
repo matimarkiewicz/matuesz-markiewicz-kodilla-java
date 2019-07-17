@@ -15,8 +15,6 @@ public class LibraryTestSuite {
         Book secondBook = new Book("Wojna i pokój", "Lew Tołstoj", LocalDate.of(1869,1,1));
 
         library.setBooks(new HashSet<>(Arrays.asList(firstBook, secondBook)));
-        library.getBooks().add(firstBook);
-        library.getBooks().add(secondBook);
 
         Library clonedLibrary = null;
         try {
@@ -34,7 +32,7 @@ public class LibraryTestSuite {
             System.out.println(e);
         }
 
-        library.getBooks().remove(secondBook);
+        library.getBooks().remove(firstBook);
 
         System.out.println(library);
         System.out.println(clonedLibrary);
