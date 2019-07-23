@@ -24,15 +24,16 @@ public class DbManagerTestSuite {
         String sqlQuery = "SELECT * FROM USERS";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
+
         int counter = 0;
         while (rs.next()) {
             System.out.println(rs.getInt("ID") + ". " + rs.getString("FIRSTNAME") + ", "
                     + rs.getString("LASTNAME"));
             counter++;
         }
+
         rs.close();
         statement.close();
-
         Assert.assertEquals(5, counter);
     }
 
@@ -48,15 +49,16 @@ public class DbManagerTestSuite {
                 "ORDER BY US.LASTNAME, US.FIRSTNAME;";
         Statement statement = dbManager.getConnection().createStatement();
         ResultSet rs = statement.executeQuery(sqlQuery);
+
         int counter = 0;
         while (rs.next()) {
             System.out.println(rs.getString("FIRSTNAME") + ", " + rs.getString("LASTNAME") + " - "
                     + rs.getInt("ISSUES_NUMBER") + " posts.");
             counter++;
         }
+
         rs.close();
         statement.close();
-
         Assert.assertEquals(2, counter);
     }
 }
