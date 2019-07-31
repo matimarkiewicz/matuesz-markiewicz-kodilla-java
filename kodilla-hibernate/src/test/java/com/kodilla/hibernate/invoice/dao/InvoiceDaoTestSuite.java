@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,28 +21,34 @@ import java.util.List;
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
+    @Autowired
+    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
 
         Invoice invoice = new Invoice("001/07/2019");
 
-        Product position1 = new Product("gwoŸdzie");
-        Product position2 = new Product("œruby");
-        Product position3 = new Product("nakrêtki");
+        Product product1 = new Product("gwoŸdzie");
+        Product product2 = new Product("œruby");
+        Product product3 = new Product("nakrêtki");
 
-        Item itemPosition1 = new Item(position1, new BigDecimal(2), 20);
-        Item itemPosition2 = new Item(position2, new BigDecimal(4), 91);
-        Item itemPosition3 = new Item(position3, new BigDecimal(5), 41);
+        productDao.save(product1);
+        productDao.save(product2);
+        productDao.save(product3);
 
-        itemPosition1.setInvoice(invoice);
-        itemPosition2.setInvoice(invoice);
-        itemPosition3.setInvoice(invoice);
+        Item itemProduct1 = new Item(product1, new BigDecimal(2), 20);
+        Item itemProduct2 = new Item(product2, new BigDecimal(4), 91);
+        Item itemProduct3 = new Item(product3, new BigDecimal(5), 41);
+
+        itemProduct1.setInvoice(invoice);
+        itemProduct2.setInvoice(invoice);
+        itemProduct3.setInvoice(invoice);
 
         List<Item> items = new ArrayList<>();
-        items.add(itemPosition1);
-        items.add(itemPosition2);
-        items.add(itemPosition3);
+        items.add(itemProduct1);
+        items.add(itemProduct2);
+        items.add(itemProduct3);
 
         invoice.setItems(items);
 
@@ -52,7 +59,7 @@ public class InvoiceDaoTestSuite {
         Invoice invoiceReadDB = invoiceDao.findById(invoiceId);
 
         Assert.assertEquals(invoiceId, invoiceReadDB.getId());
-        Assert.assertNotEquals(3, itemSize);
+        Assert.assertEquals(3, itemSize);
         Assert.assertEquals(itemSize, invoiceReadDB.getItems().size());
 
         invoiceDao.delete(invoice);

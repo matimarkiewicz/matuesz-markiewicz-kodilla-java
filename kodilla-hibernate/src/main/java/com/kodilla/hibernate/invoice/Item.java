@@ -34,7 +34,7 @@ public class Item {
     }
 
     @ManyToOne
-    @Column(name = "PRODUCT_ID")
+    @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
     }
