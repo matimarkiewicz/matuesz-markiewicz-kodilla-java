@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
@@ -41,8 +42,8 @@ public class TaskListDaoTestSuite {
         Assert.assertEquals(LISTNAME, readTaskList.get(1).getListName());
         Assert.assertEquals(LISTNAME, readTaskList.get(2).getListName());
 
-       // taskListDao.delete(taskListFirst);
-       // taskListDao.delete(taskListSecond);
-       // taskListDao.delete(taskListThird);
+        taskListDao.delete(taskListFirst);
+        taskListDao.delete(taskListSecond);
+        taskListDao.delete(taskListThird);
     }
 }

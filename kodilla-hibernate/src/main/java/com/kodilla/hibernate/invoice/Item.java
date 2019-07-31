@@ -28,12 +28,12 @@ public class Item {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name = "ITEM_ID", unique = true)
+    @Column(name = "ID", unique = true)
     public long getId() {
         return id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @Column(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -54,7 +54,7 @@ public class Item {
         return value;
     }
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "INVOICE_ID", nullable = false)
     public Invoice getInvoice() {
         return invoice;

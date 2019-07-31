@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +52,9 @@ public class InvoiceDaoTestSuite {
         Invoice invoiceReadDB = invoiceDao.findById(invoiceId);
 
         Assert.assertEquals(invoiceId, invoiceReadDB.getId());
-        Assert.assertEquals(3, itemSize);
+        Assert.assertNotEquals(3, itemSize);
         Assert.assertEquals(itemSize, invoiceReadDB.getItems().size());
 
-        //invoiceDao.delete(id);
+        invoiceDao.delete(invoice);
     }
 }

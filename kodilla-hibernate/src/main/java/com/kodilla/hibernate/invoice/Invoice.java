@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table
 public class Invoice {
-    private int id;
+    private long id;
     private String number;
     private List<Item> items = new ArrayList<>();
 
@@ -29,7 +29,7 @@ public class Invoice {
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -38,13 +38,13 @@ public class Invoice {
         return number;
     }
 
-    @OneToMany(targetEntity = Item.class, mappedBy = "invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Item.class, mappedBy = "Invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Column(name = "ITEM_ID", nullable = false)
     public List<Item> getItems() {
         return items;
     }
 
-    private void setId(int id) {
+    private void setId(long id) {
         this.id = id;
     }
 

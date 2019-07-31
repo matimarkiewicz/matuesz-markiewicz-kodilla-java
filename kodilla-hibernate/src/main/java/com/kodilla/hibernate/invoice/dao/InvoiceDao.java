@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface InvoiceDao extends CrudRepository<Invoice, Integer> {
     Invoice findById(long id);
+
 }
