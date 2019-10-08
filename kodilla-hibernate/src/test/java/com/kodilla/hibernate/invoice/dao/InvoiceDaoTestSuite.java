@@ -29,9 +29,9 @@ public class InvoiceDaoTestSuite {
 
         Invoice invoice = new Invoice("001/07/2019");
 
-        Product product1 = new Product("gwoŸdzie");
-        Product product2 = new Product("œruby");
-        Product product3 = new Product("nakrêtki");
+        Product product1 = new Product("gwozdzie");
+        Product product2 = new Product("sruby");
+        Product product3 = new Product("nakretki");
 
         productDao.save(product1);
         productDao.save(product2);
