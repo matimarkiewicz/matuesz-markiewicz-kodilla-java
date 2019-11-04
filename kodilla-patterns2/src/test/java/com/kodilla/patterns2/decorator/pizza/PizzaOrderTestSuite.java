@@ -13,9 +13,9 @@ public class PizzaOrderTestSuite {
 
         PizzaOrder theOrder = new BasicPizzaOrder();
 
-        BigDecimal calculatedCost = theOrder.getCost();
+        BigDecimal theCost = theOrder.getCost();
 
-        assertEquals(new BigDecimal(15), calculatedCost);
+        assertEquals(new BigDecimal(25), theCost);
     }
 
     @Test
